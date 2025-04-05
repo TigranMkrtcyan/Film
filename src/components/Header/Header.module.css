@@ -8,6 +8,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(15, 35, 118);
+    z-index: 9999999;
 }
 
 .logo {
@@ -31,7 +32,7 @@ select {
 }
 
 nav {
-    max-width: 800px;
+    max-width: 750px;
     overflow-x: auto;
     display: flex;
     align-items: center;

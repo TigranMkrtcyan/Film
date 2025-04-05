@@ -22,8 +22,7 @@ const movieSilce = createSlice({
         builder.addCase(getMovieThunk.pending , (state,action) => {
         })
         builder.addCase(getMovieThunk.fulfilled , (state,action) => {
-            state.movies = action.payload.results
-            
+            state.movies = action.payload.results  
         })
     }
 })

@@ -10,11 +10,21 @@ export const getGenresThunk = createAsyncThunk(
     }
 )
 
+export const getGenresMoviesThunk = createAsyncThunk(
+    "getGenresMoviesThunk",
+    async ({language,genreId}) => {
+        const res = await FilmAPI.getGenersMovies(language,genreId)
+        
+        return res.data.results
+    }
+)
+
 const genresSlice = createSlice({
     name: "genresSlice",
     initialState: {
         genres: [],
-        loading: false
+        loading: false,
+        genreMovies : []
     },
     reducers: {
     },
@@ -25,6 +35,13 @@ const genresSlice = createSlice({
         builder.addCase(getGenresThunk.fulfilled, (state,action) => {
             state.loading = false
             state.genres = action.payload
+        })
+        builder.addCase(getGenresMoviesThunk.pending, (state) => {
+            state.loading = true
+        })
+        builder.addCase(getGenresMoviesThunk.fulfilled, (state,action) => {
+            state.loading = false
+            state.genreMovies = action.payload
         })
     }
 })
