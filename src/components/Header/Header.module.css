@@ -34,12 +34,32 @@ select {
 nav {
     max-width: 750px;
     overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
     align-items: center;
     gap: 10px;
+    scroll-snap-type: x mandatory;
 }
 
 nav::-webkit-scrollbar {
-    width: 0; 
-    height: 0; 
+    height: 6px;
+}
+
+nav::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.btn {
+    min-width: 180px;
+    height: 30px;
+    background-color: #2ec4f1;
+    color: white;
+    border-radius: 16px;
+    border: none;
+    scroll-snap-align: center;
 }

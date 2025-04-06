@@ -1,0 +1,21 @@
+.movies {
+    margin: auto;
+    margin-top: 150px;
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.h3 {
+    overflow-wrap: break-word;
+    text-align: center;
+    font-weight: 600;
+    color:  rgb(24, 149, 203);
+}
+
+.ganre {
+    max-width: 420px;
+}

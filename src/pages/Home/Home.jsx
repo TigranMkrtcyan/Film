@@ -24,7 +24,7 @@ const Home = () => {
         }))
         dispatch(getGenresMoviesThunk({
             language,
-            genreId: 99
+            genreId: 10752
         }))
     }, [language])
 
@@ -46,7 +46,7 @@ const Home = () => {
                     })
                 }
             </Swiper>
-            <h1>Documentary movies</h1>
+            <h1>Genres Movies</h1>
             <hr />
             <Swiper
                 spaceBetween={50}
