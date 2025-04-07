@@ -18,9 +18,11 @@ const Header = () => {
 
     return (
         <header>
-            <div className={style.logo}>
-                <FaFilm />
-            </div>
+            <NavLink to={`/`}>
+                <div className={style.logo}>
+                    <FaFilm />
+                </div>
+            </NavLink>
             <nav>
                 {
                     genres.map((gener) => {

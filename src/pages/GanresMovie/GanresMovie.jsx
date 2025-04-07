@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -9,26 +9,56 @@ const GanresMovie = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const { language } = useSelector(state => state.global)
-    const { genreMovies } = useSelector(state => state.genres)
+    const { genreMovies, loading } = useSelector(state => state.genres)
+
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
         dispatch(getGenresMoviesThunk({
             language,
-            genreId: id
+            genreId: id,
+            page: page
         }))
-    }, [id,language])
+    }, [id, language, page, dispatch])
 
+    useEffect(() => {
+        function handleScroll() {
+            if (loading) return; 
+            
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollPosition = window.scrollY;
+            
+            if (documentHeight - (windowHeight + scrollPosition) < 200) {
+                setPage(prevPage => prevPage + 1);
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [loading]); 
+    
+    useEffect(() => {
+        setPage(1);
+    }, [id, language]);
+    
     return (
         <>
-        <div className={style.movies} >
+        <div className={style.movies}>
             {
                 genreMovies.map((el) => {
                     return(
-                        <div key={el.id} className='ganre'>
-                        <img src={`https://image.tmdb.org/t/p/w400/${el.backdrop_path}`} alt="" />
-                        <h3 className={style.h3}>{el.title}</h3>
-                    </div>
-                )})
+                        <div key={el.poster_path} className='ganre'>
+                            <img 
+                                src={el.poster_path ? `https://image.tmdb.org/t/p/w400/${el.poster_path}` : '/no-poster.jpg'} 
+                                alt={el.title || "Movie poster"} 
+                            />
+                            <h3 className={style.h3}>{el.title}</h3>
+                        </div>
+                    )})
             }
         </div>
         </>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMovieThunk } from '../../store/slices/movieSlice'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,6 +17,8 @@ const Home = () => {
     const { language } = useSelector(state => state.global)
     const { genreMovies } = useSelector(state => state.genres)
 
+    const [isFetching, setIsFetching] = useState(false)
+    
     useEffect(() => {
         dispatch(getMovieThunk({
             language,
