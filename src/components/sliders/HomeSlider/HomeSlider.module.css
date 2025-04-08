@@ -1,3 +1,10 @@
-.h2 {
-    color:  rgb(24, 149, 203);
+.h1 {
+    color: rgb(24, 149, 203);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.poster {
+    height: 520px;
 }

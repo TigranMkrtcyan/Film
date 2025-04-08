@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const globalSlice = createSlice({
     name: "globalSlice",
     initialState: {
-        language: "en-US"
+        language: "en-US",
     },
     reducers: {
         changeLng(state, action) {
             state.language = action.payload
-        }
+        },
     }
 })
 

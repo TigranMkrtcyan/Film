@@ -1,0 +1,43 @@
+
+.movie {
+    margin-top: 120px;
+    max-width: 1200px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    gap: 10px;
+}
+
+.texts {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.info {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.text {
+    padding: 0 10px;
+    width: 400px;
+    height: 30px;
+    color:  rgb(47, 81, 215);
+    border-radius: 8px;
+    text-align: start;
+    justify-content: flex-start;
+}
+
+.poster {
+    height: 540px;
+}
+
+span {
+    color:   #2ec4f1;
+}

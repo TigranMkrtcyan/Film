@@ -23,24 +23,24 @@ const genresSlice = createSlice({
     name: "genresSlice",
     initialState: {
         genres: [],
-        loading: false,
         genreMovies : [],
+        loading : false
     },
     reducers: {
     },
     extraReducers: (builder) => {
         builder.addCase(getGenresThunk.pending, (state) => {
-            state.loading = true
+            state.loading = true 
         })
         builder.addCase(getGenresThunk.fulfilled, (state,action) => {
-            state.loading = false
+            state.loading = false 
             state.genres = action.payload
         })
         builder.addCase(getGenresMoviesThunk.pending, (state) => {
-            state.loading = true
+            state.loading = true 
         })
         builder.addCase(getGenresMoviesThunk.fulfilled, (state,action) => {
-            state.loading = false
+            state.loading = false 
             if (action.payload.page === 1) {
                 state.genreMovies = action.payload;
             } else {

@@ -1,0 +1,22 @@
+.h3 {
+    width: 400px;
+    color: rgb(24, 149, 203);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ganre {
+    width: 400px;
+    background-color: rgb(99, 96, 92);
+    border-radius: 16px;
+}
+
+.information { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: rgb(110, 137, 247);
+    margin: 10px 0;
+}

@@ -9,13 +9,3 @@
     gap: 30px;
 }
 
-.h3 {
-    overflow-wrap: break-word;
-    text-align: center;
-    font-weight: 600;
-    color:  rgb(24, 149, 203);
-}
-
-.ganre {
-    max-width: 420px;
-}

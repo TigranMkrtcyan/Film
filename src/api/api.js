@@ -15,6 +15,9 @@ const FilmAPI = {
     },
     getGenersMovies(language,genreId,page) {
         return instance.get(`/discover/movie?api_key=${apiKey}&language=${language}&with_genres=${genreId}&page=${page}`)
+    },
+    getOneMovie(language,id) {
+        return instance.get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
     }
 }
 
