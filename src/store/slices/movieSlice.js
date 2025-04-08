@@ -5,6 +5,7 @@ export const getMovieThunk = createAsyncThunk(
     "getMovieThunk",
     async ({language,pageCount}) => {
         const res = await FilmAPI.getMovies(language,pageCount)
+        
         return res.data
     }
 )
@@ -13,6 +14,16 @@ export const getOneMovieThunk = createAsyncThunk(
     "getOneMovieThunk",
     async ({language,id}) => {
         const res = await FilmAPI.getOneMovie(language,id)
+        
+        return res.data
+    }
+)
+
+export const getSearch = createAsyncThunk(
+    "getSearch",
+    async (text) => {
+        const res = await FilmAPI.search(text)
+        console.log(text);
 
         return res.data
     }
@@ -22,11 +33,15 @@ const movieSilce = createSlice({
     name : "movieSilce",
     initialState : {
         movies : [],
+        movie : [],
+        searchMovie : [],
+        text : '',
         loading : false,
-        movie : []
     },
     reducers : {
-
+        changeText(state,action) {
+            state.text = action.payload
+        }
     },
     extraReducers : (builder) => {
         builder.addCase(getMovieThunk.pending , (state,action) => {
@@ -43,7 +58,15 @@ const movieSilce = createSlice({
             state.loading = false 
             state.movie = action.payload
         })
+        builder.addCase(getSearch.pending , (state) => {
+            state.loading = true 
+        })
+        builder.addCase(getSearch.fulfilled , (state,action) => {
+            state.loading = false 
+            state.searchMovie = action.payload.results
+        })
     }
 })
 
+export const {changeText} = movieSilce.actions
 export default movieSilce.reducer

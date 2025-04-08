@@ -18,6 +18,9 @@ const FilmAPI = {
     },
     getOneMovie(language,id) {
         return instance.get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
+    },
+    search(text){
+        return instance.get(`search/movie?api_key=${apiKey}&query=${text}`)
     }
 }
 

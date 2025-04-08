@@ -15,8 +15,6 @@ const OneMovie = () => {
         dispatch(getOneMovieThunk({ language, id }))
     }, [id, language, dispatch])
 
-    console.log(movie);
-
     if (loading) {
         return <div className='loader'></div>
     }
@@ -29,7 +27,7 @@ const OneMovie = () => {
                 <div className={style.texts}>
                     <h2 className={style.text}><span>Release -</span> {movie.release_date}</h2>
                     <h2 className={style.text}><span>Popularity -</span> {movie.popularity}</h2>
-                    <h2 className={style.text}><span>Revenue -</span> {movie.revenue}</h2>
+                    <h2 className={style.text}><span>Revenue -</span> {movie.revenue } $</h2>
                     <h2 className={style.text}><span>Vote Average -</span>  {movie.vote_average}</h2>
                     <h2 className={style.text}><span>Vote Count -</span> {movie.vote_count}</h2>
                 </div>
